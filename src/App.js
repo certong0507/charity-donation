@@ -17,12 +17,13 @@ color: #666699;
 `
 const Card = styled.div`
   width: 500px;
-  height: 450px;
-  margin: 10px;
+  height: 370px;
+  margin: 10px 20px 40px 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   float: left;
   display:inline-block;
+  box-shadow: 5px 7px 8px #EEEEEE;
 
   & > img {
     width: 500px;
@@ -80,7 +81,7 @@ const CardContainer = styled.div`
   text-align: center;
   margin: 10px auto;
   position: relative;
-  width: 85%;
+  width: 88%;
 `
 const TitleH3Convert = TextStyle.withComponent('h3')
 const TitleH3 = TitleH3Convert.extend`
@@ -163,8 +164,12 @@ export default connect((state) => state)(
               </div>
             </Payment>
             <img src={'./images/'+item.image}/>
-            <TitleH3>{item.name}</TitleH3>
+            <div style={{float: 'left', textAlign: 'left'}}>
+              <TitleH3>{item.name}</TitleH3>
+            </div>
+            <div style={{float: 'right', textAlign: 'right'}}>
             <Button id={'btn'+i} onClick={() => openNav(i)}>Donate</Button>
+            </div>
           </Card>
         );
       });
@@ -185,9 +190,8 @@ export default connect((state) => state)(
 
       return (
         <div>
-          <ToastContainer 
-            style= {ToastContainerStyle}
-          />
+          {/* ToastContainer: To display notification on screen */}
+          <ToastContainer style= {ToastContainerStyle}/>
           <TitleMain>Omise Tamboon React</TitleMain>
           <TotalDonationText>Total Donations: USD {donate}.00</TotalDonationText>
           <CardContainer>{cards}</CardContainer>
