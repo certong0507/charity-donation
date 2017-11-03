@@ -56,7 +56,7 @@ const Payment = styled.div`
   & > div {
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 60px;
 
     & > div {
       padding-bottom: 20px;
